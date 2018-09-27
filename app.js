@@ -1,5 +1,4 @@
 
- src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"
 
   // Initialize Firebase
   var config = {
@@ -39,7 +38,7 @@
           name,
           role,
          startDate,
-          monthlyRate
+          monthlyRate,
         });
   });
   // Firebase is always watching for changes to the data.
