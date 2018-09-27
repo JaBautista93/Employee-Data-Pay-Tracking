@@ -1,5 +1,4 @@
 
- src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"
 
   // Initialize Firebase
   var config = {
@@ -35,16 +34,17 @@
         startDate= $("#start-input").val().trim();
         monthlyRate =$("#rate-input").val().trim();
         // Code in the logic for storing and retrieving the most recent user.
-        database.ref().set({
+        database.ref().push({
           name,
           role,
          startDate,
-          monthlyRate
+          monthlyRate,
+         dateAdded: firebase.database.ServerValue.TIMESTAMP
         });
   });
   // Firebase is always watching for changes to the data.
     // When changes occurs it will print them to console and html
-    database.ref().on("value", function(snapshot) {
+    database.ref().on("child_added", function(snapshot) {
 
         // Print the initial data to the console.
         console.log(snapshot.val());
