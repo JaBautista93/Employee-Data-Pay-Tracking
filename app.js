@@ -54,6 +54,10 @@
         console.log(snapshot.val().role);
         console.log(snapshot.val().startDate);
         console.log(snapshot.val().monthlyRate);
+        
+        
+        
+        
         // Change the HTML
         $("#name-display").text(snapshot.val().name);
         $("#role-display").text(snapshot.val().role);
@@ -63,4 +67,4 @@
         },function(errorObject) {
               console.log("The read failed: " + errorObject.code);
             });
-        
+    dataRef.ref().orderByChild("dataAdded").limitToLast(1).on('child_added", function(snapshot)
